@@ -11,6 +11,7 @@ const PropiedadesSchema = new Schema(
     pais: { type: String, required: true },
     user: { type: Schema.Type.ObjectId, ref: 'Users', required: true },
     tipo: { type: Number, required: true },
+    precio: { type: Number, required: true },
     calificacion: {
       type: [
         {
@@ -19,7 +20,7 @@ const PropiedadesSchema = new Schema(
         }
       ]
     },
-    caaracteristicas: [
+    caracteristicas: [
       { type: Schema.Type.ObjectId, ref: 'Caracteristicas', required: true }
     ],
     servicios: [

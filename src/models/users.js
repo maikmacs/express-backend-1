@@ -1,5 +1,5 @@
-import mongoose from "mongoose";
-import bcrypt from "bcrypt";
+import mongoose from 'mongoose';
+import bcrypt from 'bcrypt';
 
 const SALT = 10;
 
@@ -16,21 +16,21 @@ const UserSchema = new Schema(
     foto: {
       type: String,
       default:
-        "https://upload.wikimedia.org/wikipedia/commons/9/93/Default_profile_picture_%28male%29_on_Facebook.jpg"
+        'https://upload.wikimedia.org/wikipedia/commons/9/93/Default_profile_picture_%28male%29_on_Facebook.jpg'
     },
     genero: { type: String, required: true },
     pais: { type: String },
     ubicacion: { type: String, required: true },
     rol: { type: String, required: true },
-    user_pay: { type: String, required: true }
+    user_pay: { type: String }
   },
-  { collection: "Users", timestamps: true }
+  { collection: 'Users', timestamps: true }
 );
 
-UserSchema.pre("save", next => {
+UserSchema.pre('save', function(next) {
   let user = this;
 
-  if (!user.isModified("password")) return next();
+  if (!user.isModified('password')) return next();
 
   bcrypt.genSalt(SALT, (err, salt) => {
     if (err) return next(err);
@@ -42,4 +42,4 @@ UserSchema.pre("save", next => {
   });
 });
 
-export default mongoose.model("Users", UserSchema);
+export default mongoose.model('Users', UserSchema);

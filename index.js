@@ -3,6 +3,8 @@ import parser from 'body-parser';
 import cors from 'cors';
 import mongoose from 'mongoose';
 
+import User from './src/models/users';
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 const mongoURI =
@@ -25,6 +27,22 @@ app.use(cors());
 
 app.get('/', (req, res) => {
   res.send('Server on');
+});
+
+app.post('/user/create', (req, res) => {
+  let user = req.body;
+
+  User.create(user)
+    .then(user => {
+      return res.status(201).json({
+        message: 'Usuario Creado',
+        id: user._id
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      return res.status(400).json(err);
+    });
 });
 
 app.listen(3000, () => console.log('Server on 3000'));
