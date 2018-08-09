@@ -2,7 +2,9 @@ import express from 'express';
 import parser from 'body-parser';
 import cors from 'cors';
 import mongoose from 'mongoose';
+import graphQLHTTP from 'express-graphql';
 
+import schema from './src/graphql';
 import User from './src/models/users';
 
 const app = express();
@@ -44,5 +46,14 @@ app.post('/user/create', (req, res) => {
       return res.status(400).json(err);
     });
 });
+
+app.use(
+  '/graphql',
+  graphQLHTTP((req, res) => ({
+    schema,
+    graphiql: true,
+    pretty: true
+  }))
+);
 
 app.listen(3000, () => console.log('Server on 3000'));
