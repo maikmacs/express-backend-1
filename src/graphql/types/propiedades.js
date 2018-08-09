@@ -28,7 +28,7 @@ export const CalificacionType = new GraphQLObjectType({
   }
 });
 
-export const Propiedades = new GraphQLObjectType({
+export const PropiedadesType = new GraphQLObjectType({
   name: 'Propiedades',
   description: 'Descripcion de Propiedades',
   fields: () => ({
