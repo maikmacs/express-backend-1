@@ -9,7 +9,7 @@ const PropiedadesSchema = new Schema(
     descripcion_larga: { type: String, required: true },
     ubicacion: { type: String, required: true },
     pais: { type: String, required: true },
-    user: { type: Schema.Type.ObjectId, ref: 'Users', required: true },
+    user: { type: Schema.Types.ObjectId, ref: 'Users', required: true },
     tipo: { type: Number, required: true },
     precio: { type: Number, required: true },
     calificacion: {
@@ -18,13 +18,14 @@ const PropiedadesSchema = new Schema(
           comentario: String,
           estrellas: Number
         }
-      ]
+      ],
+      required: true
     },
     caracteristicas: [
-      { type: Schema.Type.ObjectId, ref: 'Caracteristicas', required: true }
+      { type: Schema.Types.ObjectId, ref: 'Caracteristicas', required: true }
     ],
     servicios: [
-      { type: Schema.Type.ObjectId, ref: 'Servicios', required: true }
+      { type: Schema.Types.ObjectId, ref: 'Servicios', required: true }
     ],
     fotos: [],
     disponibilidad_inicial: {

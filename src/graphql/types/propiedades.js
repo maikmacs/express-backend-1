@@ -17,15 +17,19 @@ import { ServiciosType } from './servicios';
 import Servicio from '../../models/servicios';
 
 export const CalificacionType = new GraphQLObjectType({
-  _id: {
-    type: GraphQLNonNull(GraphQLID)
-  },
-  comentario: {
-    type: GraphQLString
-  },
-  estrellas: {
-    type: GraphQLInt
-  }
+  name: 'Calificaciones',
+  description: 'Calificaciones de Propiedades',
+  fields: () => ({
+    _id: {
+      type: GraphQLNonNull(GraphQLID)
+    },
+    comentario: {
+      type: GraphQLString
+    },
+    estrellas: {
+      type: GraphQLInt
+    }
+  })
 });
 
 export const PropiedadesType = new GraphQLObjectType({

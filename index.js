@@ -5,7 +5,9 @@ import mongoose from 'mongoose';
 import graphQLHTTP from 'express-graphql';
 
 import schema from './src/graphql';
+
 import User from './src/models/users';
+import Propiedad from './src/models/propiedades';
 
 const app = express();
 const PORT = process.env.PORT || 3000;

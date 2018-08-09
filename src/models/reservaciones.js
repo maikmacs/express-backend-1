@@ -4,14 +4,14 @@ const Schema = mongoose.Schema;
 
 const ReservacionesSchema = new Schema(
   {
-    user: { type: Schema.Type.ObjectId, ref: 'Users', required: true },
+    user: { type: Schema.Types.ObjectId, ref: 'Users', required: true },
     propiedad: {
-      type: Schema.Type.ObjectId,
+      type: Schema.Types.ObjectId,
       ref: 'Propiedades',
       required: true
     },
     status_pago: {
-      type: boolean,
+      type: Boolean,
       required: true,
       default: false
     },

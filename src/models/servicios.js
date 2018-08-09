@@ -10,4 +10,4 @@ const ServiciosSchema = new Schema(
   { collection: 'Servicios', timestamps: true }
 );
 
-export default mongoose.model('Servicios', ServicioSchema);
+export default mongoose.model('Servicios', ServiciosSchema);
