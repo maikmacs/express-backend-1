@@ -1,5 +1,5 @@
-import queryAllServicios from './all';
+import allServicios from './all';
 
 export default {
-  queryAllServicios
+  allServicios
 };

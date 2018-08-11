@@ -39,7 +39,7 @@ export const PropiedadesType = new GraphQLObjectType({
     _id: {
       type: GraphQLNonNull(GraphQLID)
     },
-    nombe: {
+    nombre: {
       type: GraphQLString
     },
     descripcion_corta: {
