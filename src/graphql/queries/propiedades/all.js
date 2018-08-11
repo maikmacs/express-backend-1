@@ -6,9 +6,8 @@ import { PropiedadesType } from '../../types/propiedades';
 const queryAllPropiedades = {
   type: new GraphQLList(PropiedadesType),
   resolve() {
-    const propiedad = Propiedad.find().exec();
-    if (!propiedad) throw new Error('Error al traer los usuarios de la BD');
-    return propiedad;
+    const propiedades = Propiedad.find().exec();
+    return propiedades;
   }
 };
 

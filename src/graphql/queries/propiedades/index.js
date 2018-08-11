@@ -1,7 +1,7 @@
 import allPropiedades from './all';
-import singlePropiedades from './single';
+import singlePropiedad from './single';
 
 export default {
   allPropiedades,
-  singlePropiedades
+  singlePropiedad
 };

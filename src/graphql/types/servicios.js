@@ -2,13 +2,14 @@ import {
   GraphQLObjectType,
   GraphQLString,
   GraphQLID,
+  GraphQLInt,
   GraphQLNonNull,
   GraphQLInputObjectType
 } from 'graphql';
 
 export const ServiciosType = new GraphQLObjectType({
   name: 'Servicios',
-  description: 'Descripcion de servicios con los que cuenta la propiedad',
+  description: 'Descripcion de servicios que provee la propiedad :v',
   fields: () => ({
     _id: {
       type: GraphQLNonNull(GraphQLID)
@@ -24,7 +25,7 @@ export const ServiciosType = new GraphQLObjectType({
 
 export const ServiciosInputType = new GraphQLInputObjectType({
   name: 'addServicios',
-  description: 'Mutation para agregar propiedades',
+  description: 'Mutation para agregar servicios',
   fields: () => ({
     nombre: {
       type: GraphQLString

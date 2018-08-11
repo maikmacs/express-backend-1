@@ -12,6 +12,7 @@ const querySingleReservacion = {
     }
   },
   resolve(root, params) {
+    console.log(root);
     const reservacion = Reservacion.findById(params.id).exec();
     return reservacion;
   }

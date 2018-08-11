@@ -1,4 +1,4 @@
-import mongoose, { mongo } from 'mongoose';
+import mongoose from 'mongoose';
 
 const Schema = mongoose.Schema;
 
@@ -22,8 +22,7 @@ const ReservacionesSchema = new Schema(
     },
     status_reservacion: {
       type: Boolean,
-      required: true,
-      default: 1
+      required: true
     },
     cargo_extra: {
       type: Number

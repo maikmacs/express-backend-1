@@ -1,13 +1,13 @@
 import user from './user';
-import propiedades from './propiedades';
-import caracteristicas from './caracteristicas';
-import servicios from './servicios';
-import reservaciones from './reservaciones';
+import propiedad from './propiedades';
+import caracteristica from './caracteristicas';
+import servicio from './servicios';
+import reservacion from './reservaciones';
 
 export default {
   ...user,
-  ...propiedades,
-  ...caracteristicas,
-  ...servicios,
-  ...reservaciones
+  ...propiedad,
+  ...caracteristica,
+  ...servicio,
+  ...reservacion
 };

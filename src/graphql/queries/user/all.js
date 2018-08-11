@@ -7,7 +7,8 @@ const queryAllUsers = {
   type: new GraphQLList(UserType),
   resolve() {
     const users = User.find().exec();
-    if (!users) throw new Error('Error al traer los usuarios de la BD');
+    if (!users)
+      throw new Error('Error al traer los usuarios de la base de datos');
     return users;
   }
 };

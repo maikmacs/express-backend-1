@@ -5,7 +5,7 @@ import { GraphQLObjectType, GraphQLSchema } from 'graphql';
 
 export default new GraphQLSchema({
   query: new GraphQLObjectType({
-    name: 'Queries',
+    name: 'Query',
     fields: queries
   }),
   mutation: new GraphQLObjectType({

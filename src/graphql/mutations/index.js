@@ -1,5 +1,11 @@
-import servicio from './servicios';
+import Servicio from './servicios';
+import Propiedad from './propiedades';
+import Carcateristica from './caracteristicas';
+import Reservacion from './reservaciones';
 
 export default {
-  ...servicio
+  ...Servicio,
+  ...Propiedad,
+  ...Carcateristica,
+  ...Reservacion
 };

@@ -1,5 +1,5 @@
-import queryAllCaracteristicas from './all';
+import allCaracteristicas from './all';
 
 export default {
-  queryAllCaracteristicas
+  allCaracteristicas
 };

@@ -13,7 +13,7 @@ export default {
   resolve(root, params) {
     const servicio = new Servicio(params.data);
     const newServicio = servicio.save();
-    if (!newServicio) throw Error('Error al crear al crear el servicio');
+    if (!newServicio) throw Error('Error al crear el servicio');
     return newServicio;
   }
 };

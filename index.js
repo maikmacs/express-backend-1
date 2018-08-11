@@ -58,4 +58,4 @@ app.use(
   }))
 );
 
-app.listen(3000, () => console.log('Server on 3000'));
+app.listen(PORT, () => console.log(`Server on ${PORT}`));

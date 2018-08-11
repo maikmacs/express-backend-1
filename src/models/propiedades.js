@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose, { Types } from 'mongoose';
 
 const Schema = mongoose.Schema;
 
@@ -18,12 +18,9 @@ const PropiedadesSchema = new Schema(
           comentario: String,
           estrellas: Number
         }
-      ],
-      required: true
+      ]
     },
-    caracteristicas: [
-      { type: Schema.Types.ObjectId, ref: 'Caracteristicas', required: true }
-    ],
+    caracteristicas: [{ type: Schema.Types.ObjectId, ref: 'Caracteristicas' }],
     servicios: [
       { type: Schema.Types.ObjectId, ref: 'Servicios', required: true }
     ],
