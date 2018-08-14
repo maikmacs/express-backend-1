@@ -3,6 +3,7 @@ import parser from 'body-parser';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import graphQLHTTP from 'express-graphql';
+import { createToken } from './src/resolvers/createToken';
 
 import schema from './src/graphql';
 
@@ -46,6 +47,16 @@ app.post('/user/create', (req, res) => {
     .catch(err => {
       console.log(err);
       return res.status(400).json(err);
+    });
+});
+
+app.post('/login', (req, res) => {
+  const token = createToken(req.body.username, req.body.password)
+    .then(token => {
+      res.status(201).json({ token });
+    })
+    .catch(() => {
+      res.status(403).json({ message: 'Login Failed' });
     });
 });
 
