@@ -4,6 +4,7 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 import graphQLHTTP from 'express-graphql';
 import { createToken } from './src/resolvers/createToken';
+import { verifyToken } from './src/resolvers/verifyToken';
 
 import schema from './src/graphql';
 
@@ -60,12 +61,34 @@ app.post('/login', (req, res) => {
     });
 });
 
+// app.get('/tokenTest', (req, res) => {
+//   const token = req.headers['authorization'];
+//   console.log(token);
+
+//   let user = verifyToken(token);
+
+//   res.send(user);
+// });
+
+app.use('/graphql', (req, res, next) => {
+  const token = req.headers['authorization'];
+  try {
+    req.user = verifyToken(token);
+    next();
+  } catch (error) {
+    res.status(401).json({ message: error.message });
+  }
+});
+
 app.use(
   '/graphql',
   graphQLHTTP((req, res) => ({
     schema,
     graphiql: true,
-    pretty: true
+    pretty: true,
+    context: {
+      user: req.user
+    }
   }))
 );
 

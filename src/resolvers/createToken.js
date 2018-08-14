@@ -2,7 +2,7 @@ import jwt from 'jsonwebtoken';
 import User from '../models/users';
 
 const secret = 'Jwjwo2!';
-const expiresIn = '1m';
+const expiresIn = '1d';
 
 export const createToken = (username, password) => {
   if (!username || !password) {
