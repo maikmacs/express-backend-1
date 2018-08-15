@@ -6,8 +6,22 @@
   "scripts": {
     "build": "rimraf dist/ && babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files",
     "start": "npm run build && node dist/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest  --detectOpenHandles --forceExit",
     "dev": "nodemon index.js --exec babel-node --presets es2015,stage-2"
+  },
+  "jest": {
+    "testEnviroment": "node",
+    "testPathIgnorePtterns": [
+      "/node_modules"
+    ],
+    "coverageReporters": [
+      "lcov",
+      "html",
+      "json"
+    ],
+    "moduleNameMapper": {
+      "^mongoose$": "<rootDir>/node_modules/mongoose"
+    }
   },
   "author": "",
   "license": "ISC",
@@ -18,6 +32,8 @@
     "express": "^4.16.3",
     "express-graphql": "^0.6.12",
     "graphql": "^0.13.2",
+    "jest": "^23.5.0",
+    "jest-cli": "^23.5.0",
     "jsonwebtoken": "^8.3.0",
     "mongoose": "^5.2.7"
   },
